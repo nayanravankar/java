@@ -9,7 +9,7 @@ public class ReduceStream {
 
     public static void main(String[] args) {
 
-        Integer[] arr = {0,1,2,3,4,5,6,7,8};
+        Integer[] arr = {1,2,3,4,5};
         List<Integer> lst = new ArrayList<>(Arrays.asList(arr));
 
         BinaryOperator<Integer> sum = (acc,input) -> {
@@ -18,9 +18,9 @@ public class ReduceStream {
             return sum1;
         };
 
-        System.out.println(lst.stream().reduce(sum));
+        System.out.println(lst.stream().reduce(sum).get());
 
-        System.out.println(lst.stream().reduce(11,(integer, integer2) -> {return integer+integer2;}));
+        System.out.println("without ext - >"+lst.stream().reduce(1,(integer, integer2) -> {return integer*integer2;}));
 
     }
 }
